@@ -71,6 +71,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-about_centos_netcfg" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/08/about_centos_netcfg/" class="article-date">
+  <time class="dt-published" datetime="2022-10-08T07:33:25.232Z" itemprop="datePublished">2022-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/10/08/about_centos_netcfg/">about cenntOS Network Card Config</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to my blog. This is anartice about the network card configuration of the centos .</p>
+<h1 id="Operations-you-must-know"><a href="#Operations-you-must-know" class="headerlink" title="Operations you must know"></a>Operations you must know</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## How to check the network card name</span><br></pre></td></tr></table></figure>
+<p>$ ip a</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Open the centos network card path</span><br></pre></td></tr></table></figure>
+<p>$ &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-xxx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">## Restart the network card</span><br></pre></td></tr></table></figure>
+<p>&#x2F;etc&#x2F;init.d&#x2F;network resrtart<br>ifup xxx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Use vi or nano editor to edit netwwork card configuration file</span><br></pre></td></tr></table></figure>
+<p>vi &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-xxx<br>nano &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-xxx</p>
+<h3 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h3><p>:wq  #save<br>:q     #exit<br>:wq!  #force to wite<br>:q!    #force to exit</p>
+<h3 id="nano"><a href="#nano" class="headerlink" title="nano"></a>nano</h3><p>ctrl + o  #save<br>ctrl + x  #exit</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">###format</span><br></pre></td></tr></table></figure>
+<p>BOOTPROTO&#x3D;static<br>DEVICE&#x3D;network card name<br>ONBOOT&#x3D;yes<br>IPADDR&#x3D;<br>NETMASK&#x3D;<br>IPADDR2&#x3D;<br>NETMASK2&#x3D;<br>GATEWAY&#x3D;<br>DNS1&#x3D;8.8.8.8<br>DNS2&#x3D;223.5.5.5</p>
+<pre><code>
+
+Thanks for reading. I don&#39;t know if it was helpful.
+
+More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/10/08/about_centos_netcfg/" data-id="cl8zlr3510000iayqcwh72gm3" data-title="about cenntOS Network Card Config" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-about-firewalld" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/10/07/about-firewalld/" class="article-date">
@@ -325,6 +382,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/10/08/about_centos_netcfg/">about cenntOS Network Card Config</a>
+          </li>
         
           <li>
             <a href="/2022/10/07/about-firewalld/">about firewalld</a>
