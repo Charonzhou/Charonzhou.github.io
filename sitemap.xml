@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2022/10/08/about_centos_netcfg/</loc>
+    <loc>http://example.com/2022/10/06/About-Linux-Network/</loc>
     
     <lastmod>2022-10-09</lastmod>
     
@@ -13,16 +13,16 @@
   <url>
     <loc>http://example.com/2022/10/07/about-firewalld/</loc>
     
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-10-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/06/About-Linux-Network/</loc>
+    <loc>http://example.com/2022/10/08/about_centos_netcfg/</loc>
     
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-10-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
