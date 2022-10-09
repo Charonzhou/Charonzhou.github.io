@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://example.com/2022/10/06/About-Linux-Network/</loc>
+    <loc>http://example.com/2022/10/06/computer/About-Linux-Network/</loc>
     <lastmod>2022-10-09</lastmod>
   </url>
   <url>
-    <loc>http://example.com/2022/10/07/about-firewalld/</loc>
+    <loc>http://example.com/2022/10/07/computer/about-firewalld/</loc>
     <lastmod>2022-10-09</lastmod>
   </url>
   <url>
-    <loc>http://example.com/2022/10/08/about_centos_netcfg/</loc>
+    <loc>http://example.com/2022/10/08/computer/about_centos_netcfg/</loc>
     <lastmod>2022-10-09</lastmod>
   </url>
 </urlset> 
