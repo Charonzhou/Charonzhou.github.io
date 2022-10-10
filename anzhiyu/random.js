@@ -1,0 +1,1 @@
+var posts=["2022/10/06/About-Linux-Network/","2022/10/08/about-centos-netcfg/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
