@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-10-09T06:31:16.011Z</updated>
+  <updated>2022-10-09T06:38:31.044Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,48 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>about cenntOS Network Card Config</title>
-    <link href="http://example.com/2022/10/08/computer/about_centos_netcfg/"/>
-    <id>http://example.com/2022/10/08/computer/about_centos_netcfg/</id>
-    <published>2022-10-08T07:33:25.232Z</published>
-    <updated>2022-10-09T06:31:16.011Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to my blog. This is anartice about the network card configuration of the centos .</p><h1 id="Operations-you-must-know"><a href="#Operations-you-must-know" class="headerlink" title="Operations you must know"></a>Operations you must know</h1><h2 id="How-to-check-the-network-card-name"><a href="#How-to-check-the-network-card-name" class="headerlink" title="How to check the network card name"></a>How to check the network card name</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ip a</span><br></pre></td></tr></table></figure><h2 id="Open-the-centos-network-card-path"><a href="#Open-the-centos-network-card-path" class="headerlink" title="Open the centos network card path"></a>Open the centos network card path</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /etc/sysconfig/network-scripts/ifcfg-xxx</span><br></pre></td></tr></table></figure><h2 id="Restart-the-network-card"><a href="#Restart-the-network-card" class="headerlink" title="Restart the network card"></a>Restart the network card</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/network resrtart</span><br><span class="line">ifup xxx</span><br></pre></td></tr></table></figure><h2 id="Use-vi-or-nano-editor-to-edit-network-card-configuration-file"><a href="#Use-vi-or-nano-editor-to-edit-network-card-configuration-file" class="headerlink" title="Use vi or nano editor to edit network card configuration file"></a>Use vi or nano editor to edit network card configuration file</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-xxx</span><br><span class="line">nano /etc/sysconfig/network-scripts/ifcfg-xxx</span><br><span class="line"><span class="comment">### vi</span></span><br><span class="line">:wq  <span class="comment">#save</span></span><br><span class="line">:q     <span class="comment">#exit</span></span><br><span class="line">:wq!  <span class="comment">#force to wite</span></span><br><span class="line">:q!    <span class="comment">#force to exit</span></span><br><span class="line"><span class="comment">### nano </span></span><br><span class="line">ctrl + o  <span class="comment">#save</span></span><br><span class="line">ctrl + x  <span class="comment">#exit</span></span><br></pre></td></tr></table></figure><h3 id="Format"><a href="#Format" class="headerlink" title="Format"></a>Format</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static</span><br><span class="line">DEVICE=network card name</span><br><span class="line">ONBOOT=<span class="built_in">yes</span></span><br><span class="line">IPADDR=</span><br><span class="line">NETMASK=</span><br><span class="line">IPADDR2=</span><br><span class="line">NETMASK2=</span><br><span class="line">GATEWAY=</span><br><span class="line">DNS1=8.8.8.8</span><br><span class="line">DNS2=223.5.5.5</span><br></pre></td></tr></table></figure><p>Thanks for reading. I don’t know if it was helpful.</p><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to my blog. This is anartice about the network card configuration of the centos .&lt;/p&gt;
-&lt;h1 id=&quot;Operations-you-must-know&quot;&gt;&lt;a href=&quot;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>about firewalld</title>
-    <link href="http://example.com/2022/10/07/computer/about-firewalld/"/>
-    <id>http://example.com/2022/10/07/computer/about-firewalld/</id>
-    <published>2022-10-07T14:49:28.295Z</published>
-    <updated>2022-10-09T06:35:15.707Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to my blog. This is an article about firewalls. My name is zhou. Thank you for reading.</p><h2 id="Firewalld"><a href="#Firewalld" class="headerlink" title="Firewalld"></a>Firewalld</h2><h3 id="Start-Firewalld"><a href="#Start-Firewalld" class="headerlink" title="Start Firewalld"></a>Start Firewalld</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service firewalld start</span><br></pre></td></tr></table></figure><h3 id="Stop-Firewalld"><a href="#Stop-Firewalld" class="headerlink" title="Stop Firewalld"></a>Stop Firewalld</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service firewalld stop</span><br></pre></td></tr></table></figure><h3 id="Restart-Firewalld"><a href="#Restart-Firewalld" class="headerlink" title="Restart Firewalld"></a>Restart Firewalld</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service firewalld restart</span><br></pre></td></tr></table></figure><h3 id="Firewalld-State-状态"><a href="#Firewalld-State-状态" class="headerlink" title="Firewalld State(状态)"></a>Firewalld State(状态)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewalld-cmd --state</span><br></pre></td></tr></table></figure><h3 id="Add-permanent-port"><a href="#Add-permanent-port" class="headerlink" title="Add-permanent-port"></a>Add-permanent-port</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --permanent --add-port=port number/tcp --permanent</span><br></pre></td></tr></table></figure><h3 id="Remove-permanent-port"><a href="#Remove-permanent-port" class="headerlink" title="Remove-permanent-port"></a>Remove-permanent-port</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$firewall</span>-cmd --permanent --remove-port=port number/tcp --permanent</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to my blog. This is an article about firewalls. My name is zhou. Thank you for reading.&lt;/p&gt;
-&lt;h2 id=&quot;Firewalld&quot;&gt;&lt;a href=&quot;#Firewall</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>network card config</title>

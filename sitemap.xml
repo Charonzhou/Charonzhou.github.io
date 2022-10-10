@@ -4,7 +4,7 @@
   <url>
     <loc>http://example.com/link/index.html</loc>
     
-    <lastmod>2022-10-09</lastmod>
+    <lastmod>2022-10-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,7 @@
   <url>
     <loc>http://example.com/categories/index.html</loc>
     
-    <lastmod>2022-10-09</lastmod>
+    <lastmod>2022-10-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +22,7 @@
   <url>
     <loc>http://example.com/tags/index.html</loc>
     
-    <lastmod>2022-10-09</lastmod>
+    <lastmod>2022-10-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/07/computer/about-firewalld/</loc>
+    <loc>http://example.com/tags/about-firewalld.html</loc>
     
     <lastmod>2022-10-09</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/08/computer/about_centos_netcfg/</loc>
+    <loc>http://example.com/tags/about_centos_netcfg.html</loc>
     
     <lastmod>2022-10-09</lastmod>
     
@@ -58,7 +58,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2022-10-09</lastmod>
+    <lastmod>2022-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
