@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-10-11T10:14:58.764Z</updated>
+  <updated>2022-10-11T10:41:12.788Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="http://example.com/2022/10/11/Query-system-version/"/>
     <id>http://example.com/2022/10/11/Query-system-version/</id>
     <published>2022-10-11T10:00:46.000Z</published>
-    <updated>2022-10-11T10:14:58.764Z</updated>
+    <updated>2022-10-11T10:41:12.788Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="welcome-to-my-blog-This-is-an-article-about-how-to-check-the-linux-version-hpoe-that-helps"><a href="#welcome-to-my-blog-This-is-an-article-about-how-to-check-the-linux-version-hpoe-that-helps" class="headerlink" title="welcome to my blog.This is an article about how to check the linux version.hpoe that helps."></a>welcome to my blog.This is an article about how to check the linux version.hpoe that helps.</h1><h1 id="欢迎来到我的博客。这是一篇关于如何查询linux版本的文章-希望对你有所帮助。"><a href="#欢迎来到我的博客。这是一篇关于如何查询linux版本的文章-希望对你有所帮助。" class="headerlink" title="欢迎来到我的博客。这是一篇关于如何查询linux版本的文章,希望对你有所帮助。"></a>欢迎来到我的博客。这是一篇关于如何查询linux版本的文章,希望对你有所帮助。</h1><h2 id="Quit-linux-version"><a href="#Quit-linux-version" class="headerlink" title="Quit linux version"></a>Quit linux version</h2><h2 id="查询linux版本"><a href="#查询linux版本" class="headerlink" title="查询linux版本"></a>查询linux版本</h2><h3 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/redhat-release</span><br></pre></td></tr></table></figure><h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat /lsb_release</span><br><span class="line"></span><br><span class="line">$ lsb_release</span><br></pre></td></tr></table></figure><h3 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/issue </span><br></pre></td></tr></table></figure><h3 id="Fedora"><a href="#Fedora" class="headerlink" title="Fedora"></a>Fedora</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;welcome-to-my-blog-This-is-an-article-about-how-to-check-the-linux-version-hpoe-that-helps&quot;&gt;&lt;a href=&quot;#welcome-to-my-blog-This-is-an-</summary>
+      
     
     
     
