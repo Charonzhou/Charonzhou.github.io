@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-10-10T18:02:44.063Z</updated>
+  <updated>2022-10-11T10:14:58.764Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Query-Linux-system-version</title>
+    <link href="http://example.com/2022/10/11/Query-system-version/"/>
+    <id>http://example.com/2022/10/11/Query-system-version/</id>
+    <published>2022-10-11T10:00:46.000Z</published>
+    <updated>2022-10-11T10:14:58.764Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>about cenntOS Network Card Config</title>
