@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-10-12T09:56:20.809Z</updated>
+  <updated>2022-10-12T09:16:09.943Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>windows-port-edit</title>
-    <link href="http://example.com/2022/10/12/windowsport-shell/"/>
-    <id>http://example.com/2022/10/12/windowsport-shell/</id>
-    <published>2022-10-12T09:35:32.000Z</published>
-    <updated>2022-10-12T09:56:20.809Z</updated>
-    
-    <content type="html"><![CDATA[<p>Windows系统修改端口的脚本</p><p>#脚本内容</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">:setup</span><br><span class="line">set port=3389</span><br><span class="line">set /p port=请输入新的远程桌面端口号并按回车确认:</span><br><span class="line">REG ADD &quot;HKLM\System\CurrentControlSet\Control\Terminal Server\Wds\Rdpwd\Tds\Tcp&quot; /v PortNumber /t REG_DWORD /d %port% /f</span><br><span class="line">REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v PortNumber /t REG_DWORD /d %port% /f</span><br><span class="line"></span><br><span class="line">@echo 正在添加防火墙规则放行远程桌面端口</span><br><span class="line">set firewallrulename=Allow Remote Desktop Port</span><br><span class="line">netsh advfirewall firewall show rule name=&quot;%firewallrulename%&quot; &gt;nul</span><br><span class="line">if not ERRORLEVEL 1 (</span><br><span class="line">@echo 对不起，Firewall规则%firewallrulename%已经存在，将删除已存在相同名字的规则,重新创建Firewall规则放行远程桌面服务端口</span><br><span class="line">netsh advfirewall firewall delete rule name=&quot;%firewallrulename%&quot;</span><br><span class="line">netsh advfirewall firewall add rule name=&quot;%firewallrulename%&quot; dir=in protocol=tcp localport=%port% action=allow</span><br><span class="line">) else (</span><br><span class="line">@echo 新增Firewall放行远程桌面服务端口规则%firewallrulename%</span><br><span class="line">netsh advfirewall firewall add rule name=&quot;%firewallrulename%&quot; dir=in protocol=tcp localport=%port% action=allow</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">@echo 系统即将在10秒后重置远程桌面服务，将会断开远程连接，断开后请稍片刻然后使用新端口登陆</span><br><span class="line">&gt;nul ping 127.0.0.1 /n 10</span><br><span class="line">net stop termservice /y &amp;&amp; net start termservice &gt;nul</span><br><span class="line">@echo 远程端口已经修改完毕！请按任意键退出</span><br><span class="line">pause</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Windows系统修改端口的脚本&lt;/p&gt;
-&lt;p&gt;#脚本内容&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>about-SSH</title>
