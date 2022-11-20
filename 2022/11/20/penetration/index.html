@@ -1,0 +1,599 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>penetration | 手捧夕阳~blog</title><meta name="keywords" content="博客,手捧夕阳,记录学习点滴,To be well-know joy."><meta name="author" content="手捧夕阳"><meta name="copyright" content="手捧夕阳"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="手捧夕阳blog https:&#x2F;&#x2F;charonzhou.github.io&#x2F;记录渗透笔记学习This is an artacle about network information collect俗话说知己知彼百战百胜，学习渗透的第一步应该从信息搜集开始学起[个人理解每个人都有不同的看法] 那信息搜集应该收集些什么东西一般来说要收集这些信息，但不局限于这些：  企业备案 域名 IP地址 端口 中间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="penetration">
+<meta property="og:url" content="http://example.com/2022/11/20/penetration/index.html">
+<meta property="og:site_name" content="手捧夕阳~blog">
+<meta property="og:description" content="手捧夕阳blog https:&#x2F;&#x2F;charonzhou.github.io&#x2F;记录渗透笔记学习This is an artacle about network information collect俗话说知己知彼百战百胜，学习渗透的第一步应该从信息搜集开始学起[个人理解每个人都有不同的看法] 那信息搜集应该收集些什么东西一般来说要收集这些信息，但不局限于这些：  企业备案 域名 IP地址 端口 中间">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2F83cd67fd-9825-531f-be49-38e5db17b6c7%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fci.xiaohongshu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671548127&t=00fb69c375952245f2e96d23a8df5075">
+<meta property="article:published_time" content="2022-11-20T14:40:54.000Z">
+<meta property="article:modified_time" content="2022-11-20T14:55:51.468Z">
+<meta property="article:author" content="手捧夕阳">
+<meta property="article:tag" content="博客,手捧夕阳,记录学习点滴,To be well-know joy.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2F83cd67fd-9825-531f-be49-38e5db17b6c7%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fci.xiaohongshu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671548127&t=00fb69c375952245f2e96d23a8df5075"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/11/20/penetration/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'penetration',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-20 14:55:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.css" /><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="手捧夕阳~blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://upload-bbs.mihoyo.com/upload/2021/09/08/83135694/b81ae11d8acc97fb68e5921b4d583f89_3421238059556693815.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 博主的信</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/windows/"><i class="fa-fw fas fa-windows"></i><span> Windows_shell</span></a></div><div class="menus_item"><a class="site-page" href="/Linux/"><i class="fa-fw fas fa-Linux"></i><span> Linux_shell</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 刷题</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2F83cd67fd-9825-531f-be49-38e5db17b6c7%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&amp;refer=http%3A%2F%2Fci.xiaohongshu.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1671548127&amp;t=00fb69c375952245f2e96d23a8df5075')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">手捧夕阳~blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 博主的信</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/windows/"><i class="fa-fw fas fa-windows"></i><span> Windows_shell</span></a></div><div class="menus_item"><a class="site-page" href="/Linux/"><i class="fa-fw fas fa-Linux"></i><span> Linux_shell</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 刷题</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">penetration</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-20T14:40:54.000Z" title="发表于 2022-11-20 14:40:54">2022-11-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-20T14:55:51.468Z" title="更新于 2022-11-20 14:55:51">2022-11-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="penetration"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="手捧夕阳blog-https-charonzhou-github-io"><a href="#手捧夕阳blog-https-charonzhou-github-io" class="headerlink" title="手捧夕阳blog https://charonzhou.github.io/"></a>手捧夕阳blog <a target="_blank" rel="noopener" href="https://charonzhou.github.io/">https://charonzhou.github.io/</a></h4><h4 id="记录渗透笔记学习"><a href="#记录渗透笔记学习" class="headerlink" title="记录渗透笔记学习"></a>记录渗透笔记学习</h4><h6 id="This-is-an-artacle-about-network-information-collect"><a href="#This-is-an-artacle-about-network-information-collect" class="headerlink" title="This is an artacle about network information collect"></a>This is an artacle about network information collect</h6><p>俗话说知己知彼百战百胜，学习渗透的第一步应该从信息搜集开始学起<br>[<em><strong>个人理解每个人都有不同的看法</strong></em>]</br></p>
+<h5 id="那信息搜集应该收集些什么东西"><a href="#那信息搜集应该收集些什么东西" class="headerlink" title="那信息搜集应该收集些什么东西"></a>那信息搜集应该收集些什么东西</h5><p>一般来说要收集这些信息，但不局限于这些：</br></p>
+<ul>
+<li>企业备案</li>
+<li>域名</li>
+<li>IP地址</li>
+<li>端口</li>
+<li>中间件</li>
+<li>CMS</li>
+<li>服务器系统</li>
+<li>数据库</li>
+<li>目录</li>
+<li>WAF</li>
+<li>泄露</li>
+</ul>
+<p>可以使用<a target="_blank" rel="noopener" href="https://0.zone/">零零安信</a>对目标进行评估<br>零零信安能收集资产的信息系统暴露、移动端应用（APP、API、小程序、公众号）、敏感目录、邮箱泄露、文档和代码、域名、人员、DWM情报等，功能强大。</br></p>
+<h4 id="信息收集流程"><a href="#信息收集流程" class="headerlink" title="信息收集流程"></a>信息收集流程</h4><hr>
+<h5 id="1-查询资产的企业备案-收集到的信息要记录下来"><a href="#1-查询资产的企业备案-收集到的信息要记录下来" class="headerlink" title="1 查询资产的企业备案 [收集到的信息要记录下来]"></a>1 查询资产的企业备案 <strong>[收集到的信息要记录下来]</strong></h5><hr>
+<h5 id="2-根据备案号查询企业拥有的域名，结合黑暗引擎与OneForAll工具查询这些域名的子域名-其他工具也可以"><a href="#2-根据备案号查询企业拥有的域名，结合黑暗引擎与OneForAll工具查询这些域名的子域名-其他工具也可以" class="headerlink" title="2 根据备案号查询企业拥有的域名，结合黑暗引擎与OneForAll工具查询这些域名的子域名 [其他工具也可以]"></a>2 根据备案号查询企业拥有的域名，结合黑暗引擎与OneForAll工具查询这些域名的子域名 <strong>[其他工具也可以]</strong></h5><ul>
+<li><p>需要注意的是有些网站可能会使用CDN加速，你域名反查可能会查到那个CDN服务器上，那这样就是没有意义的信息收集，</p>
+</li>
+<li><p>我们一般用这两种方法来判断域名是否采用CDN加速：</p>
+<ul>
+<li>方法一：Ping多处。使用站长家的多址ping功能ping目标域名。获取多个独立IP地址时，采用CDN加速。</li>
+<li>方法二：NSLOOKUP+域名。配合命令窗口中的NSLOOKUP+域名命令。当非权威响应中出现多个独立的IP地址时，说明采用了CDN加速。</li>
+</ul>
+</li>
+<li><p>那么如何找到CDN加速域名的真实IP呢？有几种方法：</p>
+<ul>
+<li>方法一：DNS历史解析记录<ul>
+<li>查询域名历史解析记录，可以找到网站使用CDN之前的解析记录，从而获取真实IP。</li>
+</ul>
+</li>
+<li>方法二：子域名查询<ul>
+<li>域名CDN加速需要付费给对应的CDN加速公司。很多情况下，只有主域名采用CDN加速，而没有采用子域名。这时候先查询对应的子域名，再反向查询子域名，得到真实IP。</li>
+</ul>
+</li>
+<li>方法三：在国外很多地方ping<ul>
+<li>很多国内CDN厂商因为各种原因只做国产线，但是国外线可能很少。这时候我们或许可以通过外部主机直接访问来获取真实IP。</li>
+</ul>
+</li>
+<li>方法四：SSL证书查询<ul>
+<li>证书颁发机构 (CAS) 必须将他们发布的每个 SSL&#x2F;TLS 证书发布到公共日志中。 SSL&#x2F;TLS 证书通常包含域名、子域名和电子邮件地址。</li>
+</ul>
+</li>
+<li>方法五：邮寄<ul>
+<li>许多网站都有发送电子邮件的功能，例如通过电子邮件注册和订阅网站内容。这时候查看邮件源码就会包含服务器的真实IP。检查电子邮件标头信息以查找真实 IP 地址。</br></li>
+</ul>
+</li>
+</ul>
+<p><strong>以上就是总结域名反查可能会查到CND之后的几种解决方法</strong>[有其他更好更方便的方法也可以]</p>
+</li>
+</ul>
+<h5 id="3-上一步获取到域名之后可以用域名反查获取到真实IP地址，获取到之后分别能进行："><a href="#3-上一步获取到域名之后可以用域名反查获取到真实IP地址，获取到之后分别能进行：" class="headerlink" title="3 上一步获取到域名之后可以用域名反查获取到真实IP地址，获取到之后分别能进行："></a>3 上一步获取到域名之后可以用域名反查获取到真实IP地址，获取到之后分别能进行：</h5><ul>
+<li><p>根据IP地址与域名查询开放的端口</p>
+</li>
+<li><p>使用工具扫描IP地址与域名获得中间件、CMS、服务器系统、数据库、目录、泄露信息</p>
+</li>
+</ul>
+<h4 id="这些信息该如何去搜集"><a href="#这些信息该如何去搜集" class="headerlink" title="这些信息该如何去搜集"></a>这些信息该如何去搜集</h4><hr>
+<h2 id="企业备案"><a href="#企业备案" class="headerlink" title="企业备案"></a>企业备案</h2><ul>
+<li>一家公司开设网站需要对网站进行备案，备案号一般在网站的最底部可以查到。根据查到的网站，可以进行查询后得到该公司的其他注册域名，以下网站常用于企业备案查询：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://beian.miit.gov.cn</span><br></pre></td></tr></table></figure></li>
+<li>若是想得到公司的其他信息，可以到企业查询网站查询，在这些网站里能查到目标公司的网站，电话，负责人等信息，为后面的信息收集与网站渗透提供参考，以下网站常用于企业查询：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://aiqicha.baidu.com（爱企查）</span><br><span class="line">https://www.qcc.com（企查查）</span><br><span class="line">https://www.tianyancha.com（天眼查）</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h5><hr>
+<p>域名能通过DNS来解析回IP，其中域名分为顶级域名，二级域名，三级域名等</p>
+<p>​               tieba.baidu.com<br>​                                                             ↑         ↑         ↑<br>​                                           三级域名.二级域名.顶级域名</p>
+<p>对于安全测试的意义：</p>
+<ul>
+<li>相同的二级域名的网站架构、源码、密码可能相似</li>
+<li>两个网站的域名解析的IP地址可能相同</li>
+</ul>
+<p>子域名的获取方式有爆破，搜索，JS查找，证书查找，DNS搜索，OneForAll搜索</p>
+<h5 id="爆破"><a href="#爆破" class="headerlink" title="爆破"></a>爆破</h5><p>分享两个常用的爆破工具：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">子域名挖掘机:https://pan.baidu.com/s/1qL1XYr9hhmlm_EleTEl0SQ 提取码:ews7</span><br><span class="line">ksubdomain：https://github.com/knownsec/ksubdomain  [无状态子域名爆破工具]</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h5><p>搜索主要是使用搜索引擎进行搜索，例如<a target="_blank" rel="noopener" href="https://www.baidu.com/">百度</a>、<a target="_blank" rel="noopener" href="http://google.com/">谷歌</a>、<a target="_blank" rel="noopener" href="https://fofa.info/">fofa</a>、<a target="_blank" rel="noopener" href="https://hunter.qianxin.com/">hunter</a>、<a target="_blank" rel="noopener" href="https://www.shodan.io/">shodan</a>、<a target="_blank" rel="noopener" href="https://www.zoomeye.org/">zoomeye</a></p>
+<p>在使用黑暗搜索引擎时，经常会出现与目标公司不相关的URL，这时就能通过下载该网站的favicon.ico文件并查看</p>
+<p><strong>获得favicon.ico文件方法：</strong></p>
+<ul>
+<li>方法一<ul>
+<li>直接在网站网址后面加favicon.ico</li>
+</ul>
+</li>
+<li>方法二<ul>
+<li>F12或者右键查看网页源代码，链接头部指向即为favicon.ico的地址</li>
+</ul>
+</li>
+<li>方法三<ul>
+<li><a target="_blank" rel="noopener" href="http://www.google.com/s2/favicons?domain=%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9D%80">http://www.google.com/s2/favicons?domain=网站地址</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>以下为常用的<strong>google hack搜索语法</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">site     指定域名</span><br><span class="line">intext   正文中存在关键字的网页</span><br><span class="line">intitle  标题中存在关键字的网页</span><br><span class="line">info     一些基本信息</span><br><span class="line">inurl    URL存在关键字的网页</span><br><span class="line">filetype 搜索指定文件类型</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">搜索子域名：site:baidu.com</span><br></pre></td></tr></table></figure>
+<hr>
+<p>在线搜索的网站有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://rapiddns.io/subdomain</span><br><span class="line">https://phpinfo.me/domain/</span><br><span class="line">http://whois.chinaz.com/（whois查询）</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="JS查找"><a href="#JS查找" class="headerlink" title="JS查找"></a>JS查找</h5><p>JS查询为使用<a target="_blank" rel="noopener" href="https://github.com/Threezh1/JSFinder">JSFinder工具</a>通过正则表达式获取URL与子域名。</p>
+<hr>
+<h5 id="证书查找"><a href="#证书查找" class="headerlink" title="证书查找"></a>证书查找</h5><p>查询HTTPS证书能查询到子域名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://crt.sh/</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="DNS搜索"><a href="#DNS搜索" class="headerlink" title="DNS搜索"></a>DNS搜索</h5><p>查询DNS能查询到该域下的解析记录，从而有可能获得子域名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://dnsdb.io/zh-cn/</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="OneForAll搜索"><a href="#OneForAll搜索" class="headerlink" title="OneForAll搜索"></a>OneForAll搜索</h5><p>OneForAll工具是集合了各种方法的子域名收集工具，因此功能很强大</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/shmilylty/OneForAll</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><p>获得一个网站的真实IP是极其重要的，原因如下：</p>
+<ul>
+<li>获取到IP地址后可以使用nmap扫出开放的端口[其他工具也可以，我用nmap较多就拿这个举例]</li>
+<li>扫描IP地址为扫描网站的上一级文件夹</li>
+<li>很多网站在其上一级有可能有该网站的源码备份</li>
+</ul>
+<p>一个IP地址能分为5个段IP地址</p>
+<ul>
+<li><p>A类地址 ：<br>  一个A类IP地址由1字节的网络地址和3字节主机地址组成，它主要为大型网络而设计的，网络地址的最高位必须是“0”， 地址范围从1.0.0.0 到127.0.0.0）。可用的A类网络有127个，每个网络能容纳16777214个主机。其中127.0.0.1是一个特殊的IP地址，表示主机本身，用于本地机器的测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注：</span><br><span class="line">    A:0-127，其中0代表任何地址，127为回环测试地址，因此，A类ip地址的实际范围是1-126.</span><br><span class="line">    默认子网掩码为255.0.0.0</span><br></pre></td></tr></table></figure></li>
+<li><p>B类地址 ：<br>一个B类IP地址由2个字节的网络地址和2个字节的主机地址组成，网络地址的最高位必须是“10”，地址范围从128.0.0.0到191.255.255.255。可用的B类网络有16382个，每个网络能容纳6万多个主机 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">注：</span><br><span class="line">    B:128-191，其中128.0.0.0和191.255.0.0为保留ip，实际范围是128.1.0.0--191.254.0.0</span><br></pre></td></tr></table></figure></li>
+<li><p>C类IP地址 ：<br>一个C类IP地址由3字节的网络地址和1字节的主机地址组成，网络地址的最高位必须是“110”。范围从192.0.0.0到223.255.255.255。C类网络可达209万余个，每个网络能容纳254个主机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：C:192-223，其中192.0.0.0和223.255.255.0为保留ip，实际范围是192.0.1.0--223.255.254.0</span><br></pre></td></tr></table></figure></li>
+<li><p>D类IP地址：<br>用于多点广播（Multicast）。 D类IP地址第一个字节以“lll0”开始，它是一个专门保留的地址。它并不指向特定的网络，目前这一类地址被用在多点广播（Multicast）中。多点广播地址用来一次寻址一组计算机，它标识共享同一协议的一组计算机。224.0.0.0到239.255.255.255用于多点广播 </p>
+</li>
+<li><p>E类IP地址<br>  以“llll0”开始，为将来使用保留。240.0.0.0到255.255.255.254，255.255.255.255用于广播地址。</p>
+<p>  全零（“0．0．0．0”）地址对应于当前主机。全“1”的IP地址（“255．255．255．255”）是当前子网的广播地址。</p>
+</li>
+</ul>
+<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>介绍：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">全称:Content Delivery Network或Content Ddistribute Network 即内容分发网络</span><br></pre></td></tr></table></figure>
+<p>概念：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上</span><br></pre></td></tr></table></figure>
+<p>作用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解决因分布、带宽、服务器性能带来的访问延迟问题，适用于站点加速、点播、直播等场景。使用户可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度和成功率。</span><br><span class="line"></span><br><span class="line">控制时延无疑是现代信息科技的重要指标，CDN的意图就是尽可能的减少资源在转发、传输、链路抖动等情况下顺利保障信息的连贯性</span><br></pre></td></tr></table></figure>
+<p>架构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">当用户点击网站页面上的内容URL，经过本地DNS系统解析，DNS系统会最终将域名的解析权交给CNAME指向的CDN专用DNS服务器。</span><br><span class="line">CDN的DNS服务器将CDN的全局负载均衡设备IP地址返回用户。</span><br><span class="line">用户向CDN的全局负载均衡设备发起内容URL访问请求。</span><br><span class="line">CDN全局负载均衡设备根据用户IP地址，以及用户请求的内容URL，选择一台用户所属区域的区域负载均衡设备，告诉用户向这台设备发起请求。</span><br><span class="line">区域负载均衡设备会为用户选择一台合适的缓存服务器提供服务，选择的依据包括：根据用户IP地址，判断哪一台服务器距用户最近；根据用户所请求的URL中携带的内容名称，判断哪一台服务器上有用户所需内容；查询各个服务器当前的负载情况，判断哪一台服务器尚有服务能力。基于以上这些条件的综合分析之后，区域负载均衡设备会向全局负载均衡设备返回一台缓存服务器的IP地址。</span><br><span class="line">全局负载均衡设备把服务器的IP地址返回给用户。</span><br><span class="line">用户向缓存服务器发起请求，缓存服务器响应用户请求，将用户所需内容传送到用户终端。如果这台缓存服务器上并没有用户想要的内容，而区域均衡设备依然将它分配给了用户，那么这台服务器就要向它的上一级缓存服务器请求内容，直至追溯到网站的源服务器将内容拉到本地。</span><br></pre></td></tr></table></figure>
+<h4 id="无CDN"><a href="#无CDN" class="headerlink" title="无CDN"></a>无CDN</h4><p>获取一个域名对应的IP需要分析其有没有CDN，判断方法为使用<a target="_blank" rel="noopener" href="https://ping.chinaz.com/">超级ping</a>，若每个地方的IP地址不同，就是有CDN，若无则否</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">若是没有用CDN的话直接用`ping`命令就能够获取真实的IP</span><br></pre></td></tr></table></figure>
+<h4 id="有CDN"><a href="#有CDN" class="headerlink" title="有CDN"></a>有CDN</h4><ol>
+<li>网站的各个子域名可能在1-254区间内，或者不同的网段，因此可以测试区域内不同IP来获取真实IP</li>
+<li>有些网站只对加www的网站加CDN，所以无www的网站有可能为真实IP</li>
+<li>根据备案信息注册的省份来判断域名所在地</li>
+<li>有些网站仅仅在国内有CDN，所以可以使用<a target="_blank" rel="noopener" href="https://ping.chinaz.com/">超级ping</a>来判断真实IP</li>
+<li>有些网站仅仅主站有CDN，而分站没有，所以可以根据分站IP判断真实IP</li>
+<li>可以通过注册账号获取验证码的方式获取目标网站向自己发送的邮件，然后使用foxmail打开查看源码，以此获得真实IP</li>
+<li>使用<a target="_blank" rel="noopener" href="https://fofa.info/">fofa</a>、<a target="_blank" rel="noopener" href="https://hunter.qianxin.com/">hunter</a>、<a target="_blank" rel="noopener" href="https://www.shodan.io/">shodan</a>、<a target="_blank" rel="noopener" href="https://www.zoomeye.org/">zoomeye</a>搜索指定关键字，以此来获得真实IP</li>
+<li>查询DNS记录来查询真实IP</li>
+<li>使用<a target="_blank" rel="noopener" href="https://github.com/boy-hack/w8fuckcdn">w8fuckcun</a>、<a target="_blank" rel="noopener" href="https://github.com/Tai7sy/fuckcdn">fuckcdn</a>工具扫描全网来获得真实IP</li>
+<li>使用<a target="_blank" rel="noopener" href="https://x.threatbook.com/">微步</a>查询历史记录，有可能查到网站没加CDN之前的IP记录</li>
+<li>使用VPN挂全局代理后<code>ping</code>目标网站</li>
+<li>使用<a target="_blank" rel="noopener" href="https://get-site-ip.com/">get-site-ip</a>网站查询真实IP，有可能不准确，需要借助以上思路进行判断</li>
+<li>利用网站favicon.ico地址的hash值在shodan搜索，具体参考<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA5MzQ3MDE1NQ==&mid=2653939118&idx=1&sn=945b81344d9c89431a8c413ff633fc3a&chksm=8b86290abcf1a01cdc00711339884602b5bb474111d3aff2d465182702715087e22c852c158f&token=268417143&lang=zh_CN#rd">该链接</a></li>
+</ol>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p>端口的范围是从0到65535，其中端口分为3大类：</p>
+<ul>
+<li>公认端口：<br> 从0-1023，这些端口绑定了一些明确服务的协议</li>
+<li>注册端口：<br>从1024到49151，这些端口松散绑定一下服务</li>
+<li>动态端口：<br>从49152到65535，这些端口并不常用</li>
+</ul>
+<h4 id="端口收集常使用nmap来进行探测，以下为快速扫描指令："><a href="#端口收集常使用nmap来进行探测，以下为快速扫描指令：" class="headerlink" title="端口收集常使用nmap来进行探测，以下为快速扫描指令："></a>端口收集常使用nmap来进行探测，以下为快速扫描指令：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -Pn -open -T4</span><br><span class="line">nmap -sS -Pn -n --open --min-hostgroup 4 --min-parallelism 1024 --host-timeout 30 -T4</span><br></pre></td></tr></table></figure>
+
+<h4 id="其他扫描工具有御剑高速TCP端口扫描工具、masscan、Goby"><a href="#其他扫描工具有御剑高速TCP端口扫描工具、masscan、Goby" class="headerlink" title="其他扫描工具有御剑高速TCP端口扫描工具、masscan、Goby"></a>其他扫描工具有御剑高速TCP端口扫描工具、<a target="_blank" rel="noopener" href="https://github.com/robertdavidgraham/masscan">masscan</a>、Goby</h4><h5 id="也可以使用在线的方式探测端口："><a href="#也可以使用在线的方式探测端口：" class="headerlink" title="也可以使用在线的方式探测端口："></a>也可以使用在线的方式探测端口：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://coolaf.com/tool/port</span><br><span class="line">https://saomiao.bmcx.com/</span><br><span class="line">https://tool.chinaz.com/port/www.gdsslxh.org.cn</span><br></pre></td></tr></table></figure>
+
+<h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><p>中间件为网站搭建平台，是网站的一个框架，常见中间件为iis、apache、tomcat、nginx、thinkphp、structs2等</p>
+<p>通常使用<a target="_blank" rel="noopener" href="https://github.com/P1-Team/AlliN">AlliN</a>、<a target="_blank" rel="noopener" href="https://github.com/s7ckTeam/Glass">Glass</a>、<a target="_blank" rel="noopener" href="https://github.com/EdgeSecurityTeam/EHole">EHole</a>、<a target="_blank" rel="noopener" href="https://github.com/zhzyker/dismap">dismap</a>等工具进行查看</p>
+<p>也可以通过观察网站的后缀进行判断，比如<code>.net.php.asp</code>后缀的网站的中间件一般为IIS</p>
+<h4 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h4><p>CMS为一个网站的模板，这个模板已经被设计好，使用前只需要使用者根据自己的需求进行更改，识别CMS能使用特定的攻击方式来进行渗透。</p>
+<p>在识别CMS前，可以使用先用7kbscan工具进行扫描，看看是否能扫出源码备份文件或者数据库备份文件。</p>
+<p>以下网站能查看ASP,PHP,ASPX,JSP,JAVAWEB 等脚本类型源码安全问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://websec.readthedocs.io/zh/latest/language/index.html</span><br></pre></td></tr></table></figure>
+<p>以下为识别方法：</p>
+<ol>
+<li><p>在一些网站的最下面会有CMS的名字</p>
+</li>
+<li><p>访问CMS的特定路径查看是否能访问来判断CMS</p>
+</li>
+<li><p>使用kali中的<code>whatweb</code>命令进行扫描</p>
+</li>
+<li><p>使用浏览器中的<code>wappalyzer</code>插件进行查看</p>
+</li>
+<li><p>使用<a target="_blank" rel="noopener" href="https://dl.pconline.com.cn/download/2717861.html">御剑WEB指纹识别系统</a>来进行扫描</p>
+</li>
+<li><p>下载网站的ico文件查看（即favicon.ico文件）</p>
+</li>
+<li><p>使用<a target="_blank" rel="noopener" href="https://github.com/P1-Team/AlliN">AlliN</a>、<a target="_blank" rel="noopener" href="https://github.com/s7ckTeam/Glass">Glass</a>、<a target="_blank" rel="noopener" href="https://github.com/EdgeSecurityTeam/EHole">EHole</a>、<a target="_blank" rel="noopener" href="https://github.com/zhzyker/dismap">dismap</a>等工具进行查看</p>
+</li>
+<li><p>使用在线网站进行查看，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://www.yunsee.cn/</span><br><span class="line">http://whatweb.bugscaner.com/（云悉）</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p> 若是以上方法无法找到源码备份原件和CMS，则可以通过<a target="_blank" rel="noopener" href="https://www.charlesproxy.com/download/">Charles工具</a>来描绘网站，该工具能自动对访问的URL进行归类整理，点击的越多，得到网站的全貌就越完整。</p>
+<h2 id="服务器系统"><a href="#服务器系统" class="headerlink" title="服务器系统"></a>服务器系统</h2><p>常见的服务器系统为windows与linux，获得操作系统的信息可以根据操作系统的特性进行特定的渗透攻击，如对window7可以使用永恒之蓝进行攻击。 </p>
+<p>以下为分辨的方法：</p>
+<ol>
+<li><p>为查看网站对大小写是否区分，区分大小写的为linux，不区分大小写的为windows</p>
+</li>
+<li><p>根据TTL值判断操作系统，但TTL值可以修改，有可能会误导我们，以下为默认操作系统TTL（TTL可以通过在<code>CMD</code>中<code>PING</code>目标网站查看）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">WINDOWS NT/2000             TTL：128</span><br><span class="line">WINDOWS 95/98               TTL：32</span><br><span class="line">UNIX                        TTL：255</span><br><span class="line">LINUX                       TTL：64</span><br><span class="line">WIN7                        TTL：64</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>nmap</code>命令的<code>-O</code>参数来进行探测</p>
+</li>
+</ol>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>数据库能为网站存储信息，不同的数据库有不同的漏洞，因此得知该网站的数据库是很有必要的，以下为识别方法：</p>
+<ol>
+<li><p>根据网站的文件来识别：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">asp     access </span><br><span class="line">php     mysql </span><br><span class="line">aspx    mssql </span><br><span class="line">jsp     mssql,oracle </span><br><span class="line">python  mogodb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过操作系统来判断数据库，有一些数据库只能在特定操作系统中才能运行，比如window下才有access，sqlserver</p>
+</li>
+<li><p>使用nmap指令进行探测端口，根据端口号来判断：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql      3306</span><br><span class="line">mssql      1433</span><br><span class="line">oracle     1511</span><br><span class="line">mongodb    27017</span><br><span class="line">redis      6379</span><br><span class="line">memcached  11211</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过<code>nmap -O -sV ip地址</code>的方式扫描能获得apache和php和mysql版本</p>
+</li>
+</ol>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>目录作为网站的基本结构之一，能方便浏览者和管理者区分。</p>
+<p>通常能用<a target="_blank" rel="noopener" href="https://www.charlesproxy.com/download/">Charles工具</a>、<a target="_blank" rel="noopener" href="https://github.com/maurosoria/dirsearch">dirsearch</a>、<a target="_blank" rel="noopener" href="https://github.com/Threezh1/JSFinder">JSFinder工具</a>、<a target="_blank" rel="noopener" href="https://github.com/foryujian/yjdirscan">御剑目录扫描专业版</a>进行目录扫描</p>
+<h2 id="WAF"><a href="#WAF" class="headerlink" title="WAF"></a>WAF</h2><p>WAF为WEB应用防护系统，用于隔离外界的非法请求</p>
+<p>有些WAF还能作为网站的中间件，如宝塔，phpStudy，inmap等等</p>
+<p>识别WAF对于安全测试的意义在于不能对有WAF的网站使用扫描工具扫描</p>
+<p>以下为识别WAF的方法：</p>
+<ol>
+<li>使用<a target="_blank" rel="noopener" href="https://github.com/EnableSecurity/wafw00f">wafw00f</a>工具进行识别</li>
+<li>利用浏览器抓包识别<code>X-Powered-By</code></li>
+</ol>
+<h2 id="泄露"><a href="#泄露" class="headerlink" title="泄露"></a>泄露</h2><p>泄露分为SVN泄露、HG泄露、GIT泄露、VIM缓存泄露、备份文件泄露、PHP备份文件泄露、gedit备份文件泄露</p>
+<h3 id="SVN泄露"><a href="#SVN泄露" class="headerlink" title="SVN泄露"></a>SVN泄露</h3><p>SVN是源代码版本管理软件。</p>
+<p>在使用SVN管理本地代码过程中，会自动生成一个隐藏文件夹，其中包含重要的源代码信息。但一些网站管理员在发布代码时，不愿意使用‘导出’功能，而是直接复制代码文件夹到WEB服务器上，这就使隐藏文件夹被暴露于外网环境，这使得渗透工程师可以借助其中包含版本信息追踪的网站文件，逐步摸清站点结构。</p>
+<p>在服务器上布署代码时，如果是使用 <code>svn checkout</code> 功能来更新代码，项目目录下会生成隐藏的<code>.svn</code>文件夹（Linux上用<code>ls</code>命令看不到，要用<code>ls -al</code>命令），若没有配置好目录访问权限，则会存在此漏洞。黑客利用此漏洞，可以下载整套网站的源代码。</p>
+<p>svn1.6及以前版本会在项目的每个文件夹下都生成一个.svn文件夹，里面包含了所有文件的备份，文件名为 .svn&#x2F;text-base&#x2F;文件名.svn-base。</p>
+<p>  svn1.7及以后版本则只在项目根目录生成一个.svn文件夹，里面的pristine文件夹里包含了整个项目的所有文件备份。</p>
+<p>使用<a target="_blank" rel="noopener" href="https://github.com/kost/dvcs-ripper">dvcs-ripper</a>工具能对网站扫描SVN</p>
+<h3 id="HG泄露"><a href="#HG泄露" class="headerlink" title="HG泄露"></a>HG泄露</h3><p>当开发人员使用 Mercurial 进行版本控制，对站点自动部署。如果配置不当,可能会将.hg 文件夹直接部署到线上环境。这就引起了 hg 泄露漏洞。</p>
+<p>使用<a target="_blank" rel="noopener" href="https://github.com/kost/dvcs-ripper">dvcs-ripper</a>)工具能对网站扫描HG</p>
+<h3 id="vim缓存"><a href="#vim缓存" class="headerlink" title="vim缓存"></a>vim缓存</h3><ul>
+<li>vim 交换文件名</li>
+<li>在使用vim时会创建临时缓存文件，关闭vim时缓存文件则会被删除，当vim异常退出后，因为未处理缓存文件，导致可以通过缓存文件恢复原始文件内容</li>
+<li>以 index.php 为例：第一次产生的交换文件名为 .index.php.swp</li>
+<li>再次意外退出后，将会产生名为 .index.php.swo 的交换文件</li>
+<li>第三次产生的交换文件则为 .index.php.swn</li>
+</ul>
+<h3 id="git泄露"><a href="#git泄露" class="headerlink" title="git泄露"></a>git泄露</h3><p>当前大量开发人员使用git进行版本控制，对站点自动部署。如果配置不当,可能会将<code>.git</code>文件夹直接部署到线上环境。这就引起了git泄露漏洞。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/maurosoria/dirsearch">dirsearch工具</a>扫描目录后有可能扫出<code>.git</code>目录，之后使用<a target="_blank" rel="noopener" href="https://github.com/lijiejie/GitHack">GitHack工具</a>能获取该文件</p>
+<h3 id="备份文件泄露"><a href="#备份文件泄露" class="headerlink" title="备份文件泄露"></a>备份文件泄露</h3><ul>
+<li><p>常见的网站<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%BA%90%E7%A0%81&spm=1001.2101.3001.7020">源码</a>备份文件后缀</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar</span><br><span class="line">tar.gz</span><br><span class="line">zip</span><br><span class="line">rar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常见的网站源码备份文件名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">web</span><br><span class="line">website</span><br><span class="line">backup</span><br><span class="line">back</span><br><span class="line">www</span><br><span class="line">wwwroot</span><br><span class="line">Temp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以使用7kbscan扫描</p>
+</li>
+<li><p>bak是备份文件，为文件格式扩展名。这类文件一般在.bak前面加上应该有原来的扩展名比如windows.dll.bak，或是windows_dll.bak，有的则是由原文件的后缀名和bak混合而成。</p>
+</li>
+<li><p>常见备份文件后缀：“.git” 、“.svn”、“ .swp” “.~”、“.bak”、“.bash_history”、“.bkf”</p>
+</li>
+<li><p>访问隐藏文件时前面加”.”</p>
+</li>
+</ul>
+<h3 id="PHP备份文件泄露"><a href="#PHP备份文件泄露" class="headerlink" title="PHP备份文件泄露"></a>PHP备份文件泄露</h3><ul>
+<li>.phps后缀释义： phps文件就是php的源代码文件。</li>
+<li>通常用于提供给用户（访问者）查看php代码，因为用户无法直接通过Web浏览器看到php文件的内容，所以需要用phps文件代替</li>
+</ul>
+<h3 id="gedit备份文件泄露"><a href="#gedit备份文件泄露" class="headerlink" title="gedit备份文件泄露"></a>gedit备份文件泄露</h3><p>在Linux下，用gedit编辑器保存后，<strong>当前目录下会生成一个后缀为“</strong> <strong>~</strong> <strong>”的文件</strong>，其文件内容就是刚编辑的内容.假设刚才保存的文件名为flag，则该文件名为flag~，见图1-1-7.通过浏览器访问这个带有“ ~ ”的文件，便可以得到源代码。</p>
+<h2 id="工具扫描"><a href="#工具扫描" class="headerlink" title="工具扫描"></a>工具扫描</h2><p>在得到资产的网站后，可以使用扫描器去扫描网站存在的漏洞</p>
+<p>最常用的扫描器有<a target="_blank" rel="noopener" href="https://github.com/chaitin/xray">Xray</a>、<a target="_blank" rel="noopener" href="https://www.iculture.cc/software/pig=20578">awvs</a>（该链接迅雷不能下载）、<a target="_blank" rel="noopener" href="https://www.iculture.cc/software/pig=22122">nessus</a>（该链接迅雷不能下载）</p>
+<h2 id="漏洞库"><a href="#漏洞库" class="headerlink" title="漏洞库"></a>漏洞库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/binganao/vulns-2022</span><br><span class="line">https://github.com/helloexp/0day</span><br><span class="line">https://github.com/helloexp/vulhub</span><br><span class="line">https://github.com/helloexp/CVE-Exploits</span><br><span class="line">https://github.com/UzJu/0day</span><br><span class="line">https://github.com/faisalfs10x/CVE-IDs</span><br><span class="line">https://github.com/YinWC/2021hvv_vul</span><br><span class="line">https://github.com/dingxiao77/redteam_vul</span><br><span class="line">https://github.com/BaizeSec/bylibrary/tree/main/docs/%E6%BC%8F%E6%B4%9E%E5%BA%93</span><br><span class="line">https://baizesec.github.io/bylibrary/%E6%BC%8F%E6%B4%9E%E5%BA%93/01-CMS%E6%BC%8F%E6%B4%9E/ActiveMQ/ActiveMQ%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/</span><br><span class="line">https://forum.ywhack.com/bountytips.php?Vulnerability</span><br><span class="line">https://github.com/r0eXpeR/supplier</span><br><span class="line">https://my.oschina.net/u/4354006/blog/3322916</span><br><span class="line">https://github.com/projectdiscovery/nuclei-templates</span><br><span class="line">https://github.com/DawnFlame/POChouse</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/PeiQi0/PeiQi-WIKI-Book">peiqi</a>漏洞库</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">手捧夕阳</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/11/20/penetration/">http://example.com/2022/11/20/penetration/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">手捧夕阳~blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2F83cd67fd-9825-531f-be49-38e5db17b6c7%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&amp;refer=http%3A%2F%2Fci.xiaohongshu.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1671548127&amp;t=00fb69c375952245f2e96d23a8df5075" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/11/18/linux-ten-monitor-tools/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.dtstatic.com%2Fuploads%2Fblog%2F202107%2F19%2F20210719122658_baf35.thumb.1000_0.png&amp;refer=http%3A%2F%2Fc-ssl.dtstatic.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1671375848&amp;t=f5093f48ab309d56a41ef1dbf1a5de31" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">linux-ten-monitor-tools</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://upload-bbs.mihoyo.com/upload/2021/09/08/83135694/b81ae11d8acc97fb68e5921b4d583f89_3421238059556693815.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">手捧夕阳</div><div class="author-info__description">博客，手捧夕阳，记录学习点滴</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E6%8D%A7%E5%A4%95%E9%98%B3blog-https-charonzhou-github-io"><span class="toc-number">1.</span> <span class="toc-text">手捧夕阳blog https:&#x2F;&#x2F;charonzhou.github.io&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E6%B8%97%E9%80%8F%E7%AC%94%E8%AE%B0%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.</span> <span class="toc-text">记录渗透笔记学习</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#This-is-an-artacle-about-network-information-collect"><span class="toc-number">2.0.1.</span> <span class="toc-text">This is an artacle about network information collect</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%82%A3%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%E5%BA%94%E8%AF%A5%E6%94%B6%E9%9B%86%E4%BA%9B%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF"><span class="toc-number">2.1.</span> <span class="toc-text">那信息搜集应该收集些什么东西</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">信息收集流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%9F%A5%E8%AF%A2%E8%B5%84%E4%BA%A7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%A4%87%E6%A1%88-%E6%94%B6%E9%9B%86%E5%88%B0%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A6%81%E8%AE%B0%E5%BD%95%E4%B8%8B%E6%9D%A5"><span class="toc-number">3.1.</span> <span class="toc-text">1 查询资产的企业备案 [收集到的信息要记录下来]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%A0%B9%E6%8D%AE%E5%A4%87%E6%A1%88%E5%8F%B7%E6%9F%A5%E8%AF%A2%E4%BC%81%E4%B8%9A%E6%8B%A5%E6%9C%89%E7%9A%84%E5%9F%9F%E5%90%8D%EF%BC%8C%E7%BB%93%E5%90%88%E9%BB%91%E6%9A%97%E5%BC%95%E6%93%8E%E4%B8%8EOneForAll%E5%B7%A5%E5%85%B7%E6%9F%A5%E8%AF%A2%E8%BF%99%E4%BA%9B%E5%9F%9F%E5%90%8D%E7%9A%84%E5%AD%90%E5%9F%9F%E5%90%8D-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7%E4%B9%9F%E5%8F%AF%E4%BB%A5"><span class="toc-number">3.2.</span> <span class="toc-text">2 根据备案号查询企业拥有的域名，结合黑暗引擎与OneForAll工具查询这些域名的子域名 [其他工具也可以]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%B8%8A%E4%B8%80%E6%AD%A5%E8%8E%B7%E5%8F%96%E5%88%B0%E5%9F%9F%E5%90%8D%E4%B9%8B%E5%90%8E%E5%8F%AF%E4%BB%A5%E7%94%A8%E5%9F%9F%E5%90%8D%E5%8F%8D%E6%9F%A5%E8%8E%B7%E5%8F%96%E5%88%B0%E7%9C%9F%E5%AE%9EIP%E5%9C%B0%E5%9D%80%EF%BC%8C%E8%8E%B7%E5%8F%96%E5%88%B0%E4%B9%8B%E5%90%8E%E5%88%86%E5%88%AB%E8%83%BD%E8%BF%9B%E8%A1%8C%EF%BC%9A"><span class="toc-number">3.3.</span> <span class="toc-text">3 上一步获取到域名之后可以用域名反查获取到真实IP地址，获取到之后分别能进行：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%99%E4%BA%9B%E4%BF%A1%E6%81%AF%E8%AF%A5%E5%A6%82%E4%BD%95%E5%8E%BB%E6%90%9C%E9%9B%86"><span class="toc-number">4.</span> <span class="toc-text">这些信息该如何去搜集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%81%E4%B8%9A%E5%A4%87%E6%A1%88"><span class="toc-number"></span> <span class="toc-text">企业备案</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D"><span class="toc-number">0.1.</span> <span class="toc-text">域名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%88%86%E7%A0%B4"><span class="toc-number">0.2.</span> <span class="toc-text">爆破</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">0.3.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JS%E6%9F%A5%E6%89%BE"><span class="toc-number">0.4.</span> <span class="toc-text">JS查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%81%E4%B9%A6%E6%9F%A5%E6%89%BE"><span class="toc-number">0.5.</span> <span class="toc-text">证书查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DNS%E6%90%9C%E7%B4%A2"><span class="toc-number">0.6.</span> <span class="toc-text">DNS搜索</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#OneForAll%E6%90%9C%E7%B4%A2"><span class="toc-number">0.7.</span> <span class="toc-text">OneForAll搜索</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80"><span class="toc-number"></span> <span class="toc-text">IP地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN"><span class="toc-number"></span> <span class="toc-text">CDN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0CDN"><span class="toc-number">1.</span> <span class="toc-text">无CDN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89CDN"><span class="toc-number">2.</span> <span class="toc-text">有CDN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3"><span class="toc-number"></span> <span class="toc-text">端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%94%B6%E9%9B%86%E5%B8%B8%E4%BD%BF%E7%94%A8nmap%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%8E%A2%E6%B5%8B%EF%BC%8C%E4%BB%A5%E4%B8%8B%E4%B8%BA%E5%BF%AB%E9%80%9F%E6%89%AB%E6%8F%8F%E6%8C%87%E4%BB%A4%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">端口收集常使用nmap来进行探测，以下为快速扫描指令：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7%E6%9C%89%E5%BE%A1%E5%89%91%E9%AB%98%E9%80%9FTCP%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7%E3%80%81masscan%E3%80%81Goby"><span class="toc-number">2.</span> <span class="toc-text">其他扫描工具有御剑高速TCP端口扫描工具、masscan、Goby</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E5%9C%A8%E7%BA%BF%E7%9A%84%E6%96%B9%E5%BC%8F%E6%8E%A2%E6%B5%8B%E7%AB%AF%E5%8F%A3%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">也可以使用在线的方式探测端口：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number"></span> <span class="toc-text">中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CMS"><span class="toc-number">1.</span> <span class="toc-text">CMS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F"><span class="toc-number"></span> <span class="toc-text">服务器系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number"></span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number"></span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WAF"><span class="toc-number"></span> <span class="toc-text">WAF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%84%E9%9C%B2"><span class="toc-number"></span> <span class="toc-text">泄露</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SVN%E6%B3%84%E9%9C%B2"><span class="toc-number"></span> <span class="toc-text">SVN泄露</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HG%E6%B3%84%E9%9C%B2"><span class="toc-number"></span> <span class="toc-text">HG泄露</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim%E7%BC%93%E5%AD%98"><span class="toc-number"></span> <span class="toc-text">vim缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E6%B3%84%E9%9C%B2"><span class="toc-number"></span> <span class="toc-text">git泄露</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2"><span class="toc-number"></span> <span class="toc-text">备份文件泄露</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2"><span class="toc-number"></span> <span class="toc-text">PHP备份文件泄露</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gedit%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2"><span class="toc-number"></span> <span class="toc-text">gedit备份文件泄露</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E6%89%AB%E6%8F%8F"><span class="toc-number"></span> <span class="toc-text">工具扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%BA%93"><span class="toc-number"></span> <span class="toc-text">漏洞库</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/20/penetration/" title="penetration"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2F83cd67fd-9825-531f-be49-38e5db17b6c7%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&amp;refer=http%3A%2F%2Fci.xiaohongshu.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1671548127&amp;t=00fb69c375952245f2e96d23a8df5075" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="penetration"/></a><div class="content"><a class="title" href="/2022/11/20/penetration/" title="penetration">penetration</a><time datetime="2022-11-20T14:40:54.000Z" title="发表于 2022-11-20 14:40:54">2022-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/18/linux-ten-monitor-tools/" title="linux-ten-monitor-tools"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.dtstatic.com%2Fuploads%2Fblog%2F202107%2F19%2F20210719122658_baf35.thumb.1000_0.png&amp;refer=http%3A%2F%2Fc-ssl.dtstatic.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1671375848&amp;t=f5093f48ab309d56a41ef1dbf1a5de31" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linux-ten-monitor-tools"/></a><div class="content"><a class="title" href="/2022/11/18/linux-ten-monitor-tools/" title="linux-ten-monitor-tools">linux-ten-monitor-tools</a><time datetime="2022-11-18T14:59:57.000Z" title="发表于 2022-11-18 14:59:57">2022-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/11/about-centos-SSH/" title="about-SSH"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://upload-bbs.mihoyo.com/upload/2022/10/11/75379477/4e70d671e217ae12182000637ae928fd_5706820214898261429.png?x-oss-process=image//resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="about-SSH"/></a><div class="content"><a class="title" href="/2022/10/11/about-centos-SSH/" title="about-SSH">about-SSH</a><time datetime="2022-10-11T11:16:15.000Z" title="发表于 2022-10-11 12:16:15">2022-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/11/Query-system-version/" title="Query-Linux-system-version"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://upload-bbs.mihoyo.com/upload/2022/10/11/75379477/cd40382689bb91ad84e0e5875ffe948a_970944299664359444.png?x-oss-process=image//resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Query-Linux-system-version"/></a><div class="content"><a class="title" href="/2022/10/11/Query-system-version/" title="Query-Linux-system-version">Query-Linux-system-version</a><time datetime="2022-10-11T10:00:46.000Z" title="发表于 2022-10-11 11:00:46">2022-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/08/about-centos-netcfg/" title="about cenntOS Network Card Config"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://upload-bbs.mihoyo.com/upload/2022/01/16/292638889/49c8921bf82de13df4846a831b4be857_1097612836686985241.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="about cenntOS Network Card Config"/></a><div class="content"><a class="title" href="/2022/10/08/about-centos-netcfg/" title="about cenntOS Network Card Config">about cenntOS Network Card Config</a><time datetime="2022-10-08T07:33:25.232Z" title="发表于 2022-10-08 08:33:25">2022-10-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 手捧夕阳</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="1708664797" data-server="tencent" data-type="playlist" data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '21249a8b7dfa4b3daa577a4ab51fb6d2';
+  var gaud_map_key = '423dc3eeb134a5d138be938d70b4f61e';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.6534116,27.96920845';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item swiper_container_card" style="height: auto;width: 100%"><div id="random"><div id="random-banner"><canvas id="peoplecanvas"></canvas></div><a id="random-hover" style="width:100%;height:auto;" href="javascript:toRandomPost()" rel="external nofollow noreferrer" one-link-mark="yes"><i class="fa fa-paper-plane" style="margin-left:10px"></i><div style="margin-left:10px">随便逛逛<i class="fa-solid fa-arrow-right" style="margin-left:10px"></i></div></a></div><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/11/18/linux-ten-monitor-tools/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.dtstatic.com%2Fuploads%2Fblog%2F202107%2F19%2F20210719122658_baf35.thumb.1000_0.png&amp;refer=http%3A%2F%2Fc-ssl.dtstatic.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1671375848&amp;t=f5093f48ab309d56a41ef1dbf1a5de31" alt="" onerror="this.src=https://cdn.cbd.int/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-18</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/11/18/linux-ten-monitor-tools/&quot;);" href="javascript:void(0);" alt="">linux-ten-monitor-tools</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/11/18/linux-ten-monitor-tools/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/10/11/about-centos-SSH/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://upload-bbs.mihoyo.com/upload/2022/10/11/75379477/4e70d671e217ae12182000637ae928fd_5706820214898261429.png?x-oss-process=image//resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,png" alt="" onerror="this.src=https://cdn.cbd.int/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-10-11</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/10/11/about-centos-SSH/&quot;);" href="javascript:void(0);" alt="">about-SSH</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/10/11/about-centos-SSH/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/10/11/Query-system-version/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://upload-bbs.mihoyo.com/upload/2022/10/11/75379477/cd40382689bb91ad84e0e5875ffe948a_970944299664359444.png?x-oss-process=image//resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,png" alt="" onerror="this.src=https://cdn.cbd.int/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-10-11</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/10/11/Query-system-version/&quot;);" href="javascript:void(0);" alt="">Query-Linux-system-version</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/10/11/Query-system-version/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/10/08/about-centos-netcfg/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://upload-bbs.mihoyo.com/upload/2022/01/16/292638889/49c8921bf82de13df4846a831b4be857_1097612836686985241.jpg" alt="" onerror="this.src=https://cdn.cbd.int/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-10-08</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/10/08/about-centos-netcfg/&quot;);" href="javascript:void(0);" alt="">about cenntOS Network Card Config</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/10/08/about-centos-netcfg/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/10/06/About-Linux-Network/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://upload-bbs.mihoyo.com/upload/2022/08/26/83135694/f5fbb69813442a23dc1660989025f382_8699306399097011977.jpg" alt="" onerror="this.src=https://cdn.cbd.int/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-10-06</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/10/06/About-Linux-Network/&quot;);" href="javascript:void(0);" alt="">network card config</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/10/06/About-Linux-Network/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/swiper.min.js"></script><script defer data-pjax src="https://cdn.cbd.int/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/swiper_init.js"></script><script data-pjax src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/gsap/3.9.1/gsap.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/people.min.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
